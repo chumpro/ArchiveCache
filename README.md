@@ -56,8 +56,6 @@ Follow instructions to install IPFS kubo, I used v0.26.0, from here: https://git
 
 ArchiveCache uses a tree structured database to model the filesystem. The commands in the scripts folder uses paths into the datastructure. These are similar to filesystem paths but they are not identical. To actually mount the filesystem work your way to the end of these instructions.
 
-Note: The following causes identity and node data to be put on IPFS.
-
 
 Edit the src/ArchiveCache/config.py to set the location of the database file.
 
