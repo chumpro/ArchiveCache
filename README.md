@@ -112,7 +112,7 @@ To look at the message first write:
 
 The message should look something like this:
 
-{".IPFS_hash": "SOME_IPFS_HASH", ".owner": "SAME_IPFS_HASH", ".policy": "identity_v0", ".signature": "DIGITAL_SIGNATURE"}
+{".ipfs_hash": "SOME_IPFS_HASH", ".owner": "SAME_IPFS_HASH", ".policy": "identity_v0", ".signature": "DIGITAL_SIGNATURE"}
 
 
 To send your node references to your friends, so that they can add your files to their nodes, you can do this manually too.
