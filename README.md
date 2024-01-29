@@ -1,7 +1,7 @@
 
 # ArchiveCache
 
-ArchiveCache is a simple, extensible, decentialized filesystem. Users can create their own folders, share data and discuss. There is no central servers. ArchiveCache currently uses IPFS, but can be extended to use other similar types of tech.
+ArchiveCache is a simple, extensible, decentralized filesystem. Users can create their own folders, share data and discuss. There is no central servers. ArchiveCache currently uses IPFS, but can be extended to use other similar types of tech.
 
 ArchiveCache filesystem works like this:
 
@@ -14,17 +14,18 @@ ArchiveCache filesystem works like this:
 
 ## Installation
 
-Warning: This software is in its early testing fase. A current known attack is flooding, but there can be all kinds of security issues. When using ArchiveCache limit communitation to people you trust and use a virtual machine. Do not put anything important on ArchiveCache and keep backups whenever you do.
+Warning: This software is in its early testing phase. There can be security issues. When using ArchiveCache limit communication to people you trust and use a virtual machine. Do not put anything important on ArchiveCache and keep backups whenever you do.
 
-Requirements: I use python 10 with pip. This has been tested with multiple docker containers on a docker network. The docker image was based on ubuntu.
+Requirements: I use python 3.10. This has been tested with multiple docker containers on a docker network. The docker image was based on Ubuntu.
 
+These instructions apply to people who use apt. Consider creating a python environment or use conda.
 
 ### Install IPFS
 
 Follow instructions to install IPFS kubo, I used v0.26.0, from here: https://github.com/ipfs/ipfs-docs/blob/main/docs/install/command-line.md.
 Make sure IPFS is initialized and started.
 
-### Install python ( for apt )
+### Install python
 
     sudo apt install python3 python3-pip
 
@@ -44,7 +45,7 @@ Make sure IPFS is initialized and started.
 
 ### Setting up your node
 
-ArchiveCache uses a tree structured database to model the filesystem. The commands in the scripts folder uses paths into the datastructure. These are similar to filesystem paths but they are not identical. To actually mount the filesystem work your way to the end of these instructions.
+ArchiveCache uses a tree structured database to model the filesystem. The commands in the scripts folder uses paths into the data structure. These are similar to filesystem paths but they are not identical. To actually mount the filesystem work your way to the end of these instructions.
 
 Edit the src/ArchiveCache/config.py to set the location of the database file.
 
@@ -56,7 +57,7 @@ Initialize an empty database.
 
     python3 scripts/initialize.py
 
-Create an identity. This identity will be used as the owner of the node. You can have other identities for messages and content.
+Create an identity. This identity will be used as the owner of the node.
 
     python3 scripts/new_identity.py identities/YOURNAMEHERE
 
@@ -70,12 +71,11 @@ To create a new node:
 
     python3 scripts/new_node.py node identities/YOURNAMEHERE
 
-Verify that everything is ok so far:
+Verify that everything is OK so far:
 
     python3 scripts/verify.py node
 
-ArchiveCache uses "messages". A message is compressed JSON. In order to send and recieve messages manually, like over e-mail, a message is encoded in base64.
-There are scripts for this.
+ArchiveCache uses "messages". A message is compressed JSON. In order to send and receive messages manually, like over e-mail, a message is encoded in base64.
 
 To get message constituting a reference to your identity as base64:
 
@@ -111,13 +111,13 @@ The big, important part is still missing; merging the roots of your friends node
 
     python3 scripts/merge.py root nodes/FRIEND_HASH/root
 
-Now you have the files and directories that your friends have created and changed. Ownerships and other vessles of control applies. Only those directories that have policy remote_directory_v0 and no owner can be added to by all.
+Now you have the files and directories that your friends have created and changed. Only those directories that have policy remote_directory_v0 and no owner can be added to by all.
 
 To merge all node roots:
 
     python3 scripts/merge_all.py
 
-To remove the nodes that have been merged:
+To remove the nodes that have been just been merged:
 
     python3 scripts/delete.py nodes
 
@@ -131,7 +131,7 @@ Create the new base64 message:
 
 And send it to your friends.
 
-### Mounting the filesystem, FINALLY!
+### Mounting the filesystem
 
 To mount the filesystem write:
 
@@ -142,8 +142,7 @@ Running scripts while the filesystem is mounted, can yield inconsistencies in th
 
 ### Automation
 
-It is possible to automate this process. I have avoided automation in order to make this significantly easier to understand and debug. Also, there are many different ways to automate.
-Some simple facilities exists.
+It is possible to automate this process. I have avoided automation in order to make this easier to understand and debug and safer to test. Also, there are many different ways to automate. Some simple facilities exists.
 
 To listen for incoming node references from friends:
 
@@ -155,6 +154,6 @@ To send a node reference to a friend:
 
 ## Contributions
 
-Feel free to give contibute and give suggestion. I will focus on bug fixing and security hardening. There will be automatic sharing of data and discovery of new friends later.
+Feel free to give contribute and give suggestion. I will focus on bug fixing and security hardening. There will be automatic sharing of data and discovery of new friends later.
 
 
