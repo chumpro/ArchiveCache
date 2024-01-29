@@ -1,5 +1,5 @@
 
-### ArchiveCache
+# ArchiveCache
 
 ArchiveCache is a simple, extensible, decentialized filesystem. Users can create their own folders, share data and discuss. There is no central servers. ArchiveCache currently uses IPFS, but can be extended to use other similar types of tech.
 
@@ -10,7 +10,7 @@ ArchiveCache filesystem works like this:
 - Data is stored on IPFS.
 - Users share a link to the root of their filesystem ( an IPFS CID ).
 - Users **merge** other users filesystems into their own ( rules such as ownership with signatures apply here ).
-- The modifying, merging, sharing cycle is what causes information propagates through the network. 
+- The modifying - merging - sharing cycle is what causes information propagates through the network. 
 
 ## Installation
 
@@ -19,30 +19,30 @@ Warning: This software is in its early testing fase. A current known attack is f
 Requirements: I use python 10 with pip. This has been tested with multiple docker containers on a docker network. The docker image was based on ubuntu.
 
 
-# Install IPFS
+### Install IPFS
 
 Follow instructions to install IPFS kubo, I used v0.26.0, from here: https://github.com/ipfs/ipfs-docs/blob/main/docs/install/command-line.md.
 Make sure IPFS is initialized and started.
 
-# Install python ( for apt )
+### Install python ( for apt )
 
     sudo apt install python3 python3-pip
 
-# Install pyfuse3
+### Install pyfuse3
 
     sudo apt install python3-pyfuse3
 
-# Install cryptodome
+### Install cryptodome
 
     pip install pycryptodome
 
-# Install ArchiveCache
+### Install ArchiveCache
 
     git pull https://github.com/chumpro/ArchiveCache.git
     cd ArchiveCache
     pip install -e .
 
-## Setting up your node
+### Setting up your node
 
 ArchiveCache uses a tree structured database to model the filesystem. The commands in the scripts folder uses paths into the datastructure. These are similar to filesystem paths but they are not identical. To actually mount the filesystem work your way to the end of these instructions.
 
@@ -131,7 +131,7 @@ Create the new base64 message:
 
 And send it to your friends.
 
-# Mounting the filesystem, FINALLY!
+### Mounting the filesystem, FINALLY!
 
 To mount the filesystem write:
 
@@ -140,7 +140,7 @@ To mount the filesystem write:
 
 Running scripts while the filesystem is mounted, can yield inconsistencies in the filesystem. This will be fixed in the future. It involves packaging everything in the same process.
 
-# Automation
+### Automation
 
 It is possible to automate this process. I have avoided automation in order to make this significantly easier to understand and debug. Also, there are many different ways to automate.
 Some simple facilities exists.
@@ -153,7 +153,7 @@ To send a node reference to a friend:
 
     python3 scripts/send.py nodes/FRIEND_HASH node
 
-# Contributions
+## Contributions
 
 Feel free to give contibute and give suggestion. I will focus on bug fixing and security hardening. There will be automatic sharing of data and discovery of new friends later.
 
