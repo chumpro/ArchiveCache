@@ -1,4 +1,4 @@
-db_path = "/root/archive_cache.db"
+db_path = "archive_cache.db"
 
 
 #
