@@ -162,7 +162,7 @@ To send a node reference to a friend:
 
 ## Contributions
 
-Feel free to give contribute and give suggestion. I will focus on bug fixing and security hardening. There will be automatic sharing of data and discovery of new friends later.
+Feel free to contribute and give suggestion. I will focus on bug fixing and security hardening. There will be automatic sharing of data and discovery of new friends later.
 
 Monero: 48hRRk1mN9nVLVrUL8e7qLNznEXzvsXzqWW24jurw4QAcaTwUa1K9FwGkzwkfGFNSzL58zNPLEGBeet6ELJ5VZ4zKDjdqiP
 
